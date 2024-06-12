@@ -47,6 +47,10 @@ export default function ListaTarefas(){
         dispatch({type: 'concluir_tarefa', payload: index })
     , []})
 
+    const excluirTarefa = useCallback((index) => {
+        dispatch({type: 'excluir_tarefa', payload: index })
+    , []})
+
     return(
         <div className="center">
             <h1>Lista de Tarefas</h1>
@@ -76,6 +80,7 @@ export default function ListaTarefas(){
                         {!tarefas.completed && (
                             <>
                                 <button onClick={() => concluirTarefa(index)}>Concluir</button>
+                                <button onClick={() => excluirTarefa(index)}>Excluir</button>
                             </>
                         )}
                     </li>
