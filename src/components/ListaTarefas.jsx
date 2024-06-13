@@ -62,7 +62,7 @@ export default function ListaTarefas(){
                         value={tarefa}
                         onChange={(e) => setTarefa(e.target.value)}
                     />
-                    <button onClick={addTarefa}>Add tarefa</button>
+                    <button className="add" onClick={addTarefa}>Add tarefa</button>
                 </div>
                 <ul>
                     {/*Criando a lista com as tarefas que forem sendo adicionadas 
