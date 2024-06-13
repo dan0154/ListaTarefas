@@ -53,39 +53,42 @@ export default function ListaTarefas(){
 
     return(
         <div className="center">
-            <h1>Lista de Tarefas</h1>
-            <div className="inputArea">
-                <input 
-                    type="text"
-                    placeholder="Nova tarefa"
-                    value={tarefa}
-                    onChange={(e) => setTarefa(e.target.value)}
-                />
-                <button onClick={addTarefa}>Add tarefa</button>
-            </div>
-            <ul>
-                {/*Criando a lista com as tarefas que forem sendo adicionadas 
-                    vamos usar o .map para mapear cada tareda 
-                    usar o index para identificar a posição de cada tarefa adicionada
-                */}
+            <div className="retangulo">
+                              <h1>Lista de Tarefas</h1>
+                <div className="inputArea">
+                    <input 
+                        type="text"
+                        placeholder="Nova tarefa"
+                        value={tarefa}
+                        onChange={(e) => setTarefa(e.target.value)}
+                    />
+                    <button onClick={addTarefa}>Add tarefa</button>
+                </div>
+                <ul>
+                    {/*Criando a lista com as tarefas que forem sendo adicionadas 
+                        vamos usar o .map para mapear cada tareda 
+                        usar o index para identificar a posição de cada tarefa adicionada
+                    */}
 
-                {tarefaAtual.map((tarefas, index) =>(
-                    //lista de acordo com a posição da tarefa anterior
-                    <li key={index}>
-                        <span style={{textDecoration: tarefas.completed ? 'line-through' : 'none' }}>
-                            {tarefas.text}
-                        </span>
-                        
-                        {/*colocando verificador para conferir se a tareda ta feita ou nao*/}
-                        {!tarefas.completed && (
-                            <>
-                                <button onClick={() => concluirTarefa(index)}>Concluir</button>
-                                <button onClick={() => excluirTarefa(index)}>Excluir</button>
-                            </>
-                        )}
-                    </li>
-                ))}
-            </ul>
+                    {tarefaAtual.map((tarefas, index) =>(
+                        //lista de acordo com a posição da tarefa anterior
+                        <li key={index} className="lista">
+                            <span style={{textDecoration: tarefas.completed ? 'line-through' : 'none' }}>
+                                {tarefas.text}
+                            </span>
+                            
+                            {/*colocando verificador para conferir se a tareda ta feita ou nao*/}
+                            {!tarefas.completed && (
+                                <>
+                                    <button className="concluir" onClick={() => concluirTarefa(index)}>Concluir</button>
+                                    <button className="excluir" onClick={() => excluirTarefa(index)}>Excluir</button>
+                                </>
+                            )}
+                        </li>
+                    ))}
+                </ul>  
+            </div>
+
         </div>
     )
 
